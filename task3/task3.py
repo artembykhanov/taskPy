@@ -38,7 +38,7 @@ def max_area_of_triangle(points):
                 triangle.append(points[j])
                 triangle.append(points[k])
                 if isCorrectTriangle(triangle[0], triangle[1], triangle[2]):
-                    area = heron(triangle[0], triangle[1], triangle[2])
+                    area = round( heron(triangle[0], triangle[1], triangle[2]),5)
                     if area > max_area:
                         max_triangles = [triangle]
                         max_area = area
@@ -54,7 +54,7 @@ def main():
         list_of_points = []
         for line in lines:
             if line.strip():
-                x, y = map(int, line.strip().split())
+                x, y = map(float, line.strip().split())
                 list_of_points.append(Point(x, y))
 
     max_area, max_triangle = max_area_of_triangle(list_of_points)
